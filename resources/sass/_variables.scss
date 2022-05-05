@@ -5,3 +5,84 @@ $body-bg: #f8fafc;
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+$font-family-base : 'Lora', serif;
+// App
+$primary: #00bcd4;
+
+// color
+$gray-600: #757575;
+
+// overlay
+$overlay-background: $gray-600;
+$overlay-opacity: 0.5;
+
+// Components
+.bg-primary {
+  background: $primary !important;
+}
+
+.btn-primary {
+  background: $primary !important;
+  border-color: $primary !important;
+}
+
+
+// carousel
+.carousel-bg{
+    width: 100%;
+}
+
+.carousel-inner{
+    width:100%;
+    object-fit: cover;
+    max-height: 350px !important;
+}
+//
+
+// header
+.header{
+    position: relative;
+    margin-bottom: 4rem;
+    padding-top: calc(8rem + 60px);
+    padding-bottom: 10rem;
+
+    // TIP: Background images are set within the HTML using inline CSS!
+    background: no-repeat center;
+    background-color: $gray-600;
+    background-size: cover;
+    background-attachment: scroll;
+
+    // Create the overlay for the masthead
+    // Modify the overlay color and opacity in src/variables/overlay.scss
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $overlay-background;
+        opacity: $overlay-opacity;
+    }
+}
+
+// typografi
+.page-heading,
+.site-heading {
+    text-align: center;
+    font-family: $font-family-base;
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .subheading {
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.1;
+        display: block;
+        margin-top: 0.625rem;
+        font-family: $font-family-base;
+    }
+}
