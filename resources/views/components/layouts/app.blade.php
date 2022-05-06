@@ -18,17 +18,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-
+    {{-- fontawesome --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-    <div id="app">
-        <main class>
-            @yield('content')
-        </main>
-    </div>
+    @yield('content') {{-- jquery.min.js --}}
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    {{-- main.js --}}
+    <script src="{{ asset('js/main.js') }}"></script>
+    {{-- popper.js --}}
+    <script src="{{ asset('js/popper.js') }}"></script>
 </body>
 
 </html>
