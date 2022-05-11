@@ -22,12 +22,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // user
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:user'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('user.home');
 });
 
 
 // admin
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'adminIndex'])->name('admin.home');
+Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'adminIndex'])->name('admin.dashboard');
 });

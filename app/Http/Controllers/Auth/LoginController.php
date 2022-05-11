@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+// role model
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 
 class LoginController extends Controller
 {
@@ -19,7 +24,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers, HasRoles;
 
     /**
      * Where to redirect users after login.
@@ -36,5 +41,22 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+    /**
+     * determine the redirect URL after login
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return string
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        // check if user has admin role
+        if ($user->hasRole('admin')) {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return redirect()->route('user.home');
+        }
     }
 }

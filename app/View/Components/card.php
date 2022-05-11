@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Post;
 use Illuminate\View\Component;
 
 class card extends Component
@@ -23,6 +24,7 @@ class card extends Component
      */
     public function render()
     {
-        return view('components.card');
+        $posts = Post::all();
+        return view('components.card', compact('posts'));
     }
 }

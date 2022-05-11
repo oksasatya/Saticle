@@ -11780,12 +11780,12 @@ a:hover {
 }
 /* COLORS */
 .postcard .postcard__tagbox .green.play:hover {
-  background: #79dd09;
+  background: #79dd09 !important;
   color: black;
 }
 
 .green .postcard__title:hover {
-  color: #79dd09;
+  color: #79dd09 !important;
 }
 
 .green .postcard__bar {
@@ -11801,7 +11801,8 @@ a:hover {
 }
 
 .postcard .postcard__tagbox .blue.play:hover {
-  background: #0076bd;
+  background: #0076bd !important;
+  color: #ffffff !important;
 }
 
 .blue .postcard__title:hover {

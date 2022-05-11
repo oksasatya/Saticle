@@ -231,11 +231,11 @@ a:hover {
 
 /* COLORS */
 .postcard .postcard__tagbox .green.play:hover {
-	background: $main-green;
+	background: $main-green !important;
 	color: black;
 }
 .green .postcard__title:hover {
-	color: $main-green;
+	color: $main-green !important;
 }
 .green .postcard__bar {
 	background-color: $main-green;
@@ -252,7 +252,8 @@ a:hover {
 }
 
 .postcard .postcard__tagbox .blue.play:hover {
-	background: $main-blue;
+	background: $main-blue !important;
+    color: #ffffff !important;
 }
 .blue .postcard__title:hover {
 	color: $main-blue;
