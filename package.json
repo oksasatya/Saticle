@@ -18,9 +18,14 @@
         "postcss": "^8.1.14",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.32.11",
-        "sass-loader": "^11.0.1"
+        "sass-loader": "^11.1.1"
     },
     "dependencies": {
-        "autoprefixer": "10.4.5"
+        "@mdi/font": "^3.7.95",
+        "autoprefixer": "10.4.5",
+        "chart.js": "^2.8.0",
+        "compass-loader": "^0.0.4",
+        "compass-mixins": "^0.12.11",
+        "perfect-scrollbar": "^1.4.0"
     }
 }

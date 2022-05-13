@@ -1,0 +1,10 @@
+// Cards Mixins
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+@mixin card-inverse-variant($bg, $border, $color) {
+  background: $bg;
+  border: 1px solid $border;
+  color: $color;
+}

@@ -1,0 +1,11 @@
+// BlockQuote Mixins //
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+@mixin blockquote($color) {
+  border-color: $color;
+  .blockquote-footer {
+    color: $color;
+  }
+}

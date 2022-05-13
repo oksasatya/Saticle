@@ -2,9 +2,16 @@
     {{-- display 4 card mix color --}}
     @if ($loop->iteration % 4 == 1)
         <article class="postcard dark blue">
-            <a class="postcard__img_link" href="#">
-                <img class="postcard__img" src="{{ $post->image }}" alt="{{ $post->title }}" />
-            </a>
+            @if ($post->image != null)
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="{{ $post->image }}" alt="{{ $post->title }}" />
+                </a>
+            @else
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="https://source.unsplash.com/1000x1000?{{ $post->title }}"
+                        alt="{{ $post->title }}" />
+                </a>
+            @endif
             <div class="postcard__text">
                 <h1 class="postcard__title blue"><a href="#">{{ $post->title }}</a></h1>
                 <div class="postcard__subtitle small">
@@ -13,7 +20,7 @@
                     </time>
                 </div>
                 <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">{{ $post->content }}</div>
+                <div class="postcard__preview-txt">{{ Str::limit($post->content, 250) }}</div>
                 <ul class="postcard__tagbox">
                     <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $post->tag }}</li>
                     <li class="tag__item"><i class="fa fa-user me-2"></i>{{ $post->author }}</li>
@@ -25,9 +32,16 @@
         </article>
     @elseif ($loop->iteration % 4 == 2)
         <article class="postcard dark red">
-            <a class="postcard__img_link" href="#">
-                <img class="postcard__img" src="{{ $post->image }}" alt="{{ $post->title }}" />
-            </a>
+            @if ($post->image != null)
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="{{ $post->image }}" alt="{{ $post->title }}" />
+                </a>
+            @else
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="https://source.unsplash.com/1000x1000?{{ $post->title }}"
+                        alt="{{ $post->title }}" />
+                </a>
+            @endif
             <div class="postcard__text">
                 <h1 class="postcard__title red"><a href="#">{{ $post->title }}</a></h1>
                 <div class="postcard__subtitle small">
@@ -36,7 +50,7 @@
                     </time>
                 </div>
                 <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">{{ $post->content }}</div>
+                <div class="postcard__preview-txt">{{ Str::limit($post->content, 250) }}</div>
                 <ul class="postcard__tagbox">
                     <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $post->tag }}</li>
                     <li class="tag__item"><i class="fa fa-user me-2"></i>{{ $post->author }}</li>
@@ -50,9 +64,16 @@
         </article>
     @elseif ($loop->iteration % 4 == 3)
         <article class="postcard dark green">
-            <a class="postcard__img_link" href="#">
-                <img class="postcard__img" src="{{ $post->image }}" alt="{{ $post->title }}" />
-            </a>
+            @if ($post->image != null)
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="{{ $post->image }}" alt="{{ $post->title }}" />
+                </a>
+            @else
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="https://source.unsplash.com/1000x1000?{{ $post->title }}"
+                        alt="{{ $post->title }}" />
+                </a>
+            @endif
             <div class="postcard__text">
                 <h1 class="postcard__title green"><a href="#">{{ $post->title }}</a></h1>
                 <div class="postcard__subtitle small">
@@ -61,7 +82,7 @@
                     </time>
                 </div>
                 <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">{{ $post->content }}</div>
+                <div class="postcard__preview-txt">{{ Str::limit($post->content, 250) }}</div>
 
                 <ul class="postcard__tagbox">
                     <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $post->tag }}</li>
@@ -75,9 +96,16 @@
         </article>
     @elseif ($loop->iteration % 4 == 0)
         <article class="postcard dark yellow">
-            <a class="postcard__img_link" href="#">
-                <img class="postcard__img" src="{{ $post->image }}" alt="{{ $post->title }}" />
-            </a>
+            @if ($post->image != null)
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="{{ $post->image }}" alt="{{ $post->title }}" />
+                </a>
+            @else
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="https://source.unsplash.com/1000x1000?{{ $post->title }}"
+                        alt="{{ $post->title }}" />
+                </a>
+            @endif
             <div class="postcard__text">
                 <h1 class="postcard__title yellow"><a href="#">{{ $post->title }}</a></h1>
                 <div class="postcard__subtitle small">
@@ -86,7 +114,7 @@
                     </time>
                 </div>
                 <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">{{ $post->content }}</div>
+                <div class="postcard__preview-txt">{{ Str::limit($post->content, 250) }}</div>
                 <ul class="postcard__tagbox">
                     <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $post->tag }}</li>
                     <li class="tag__item"><i class="fa fa-user me-2"></i>{{ $post->author }}</li>
