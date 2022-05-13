@@ -9,4 +9,14 @@ use Spatie\Permission\Traits\HasPermissions;
 class Post extends Model
 {
     use HasFactory, HasPermissions;
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'content',
+        'published',
+        'tag',
+        'image',
+        'author',
+    ];
 }
