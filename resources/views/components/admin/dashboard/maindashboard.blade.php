@@ -36,7 +36,8 @@
                 <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
                 <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-end"></i>
                 </h4>
-                <h2 class="mb-5">95,5741</h2>
+                {{-- show online user --}}
+                <h2 class="mb-5">{{ $online }}</h2>
                 <h6 class="card-text">Increased by 5%</h6>
             </div>
         </div>

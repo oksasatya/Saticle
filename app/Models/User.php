@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Shetabit\Visitor\Models\Visit;
+use Shetabit\Visitor\Traits\Visitable;
 use Spatie\Permission\Traits\HasRoles;
 use Shetabit\Visitor\Traits\Visitor;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
-
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, Visitor, Visitable;
     /**
      * The attributes that are mass assignable.
      *
@@ -45,10 +46,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    // passing users total
-    public function getTotalUsersAttribute()
-    {
-        return User::count();
-    }
 }

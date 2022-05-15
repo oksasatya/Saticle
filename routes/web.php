@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // user
-Route::middleware(['auth', 'verified', 'role:user'])->group(function () {
+Route::middleware(['auth', 'verified', 'role:user', 'visitor'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('user.home');
 });
 
