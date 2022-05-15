@@ -52,11 +52,11 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        // check if user has admin role
-        if ($user->hasRole('admin')) {
-            return redirect()->route('admin.dashboard');
-        } else {
+
+        if ($user->hasRole('user')) {
             return redirect()->route('user.home');
+        } else {
+            return redirect()->route('admin.dashboard');
         }
     }
 }

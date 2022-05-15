@@ -5,9 +5,13 @@
             <x-admin.navbar></x-admin.navbar>
             <div class="container-fluid page-body-wrapper">
                 <x-admin.sidebar></x-admin.sidebar>
-                <x-admin.dashboard.main-dashboard></x-admin.dashboard.main-dashboard>
-            </div>
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <x-admin.dashboard.maindashboard></x-admin.dashboard.maindashboard>
+                    </div>
+                </div>
 
+            </div>
             <x-admin.footer></x-admin.footer>
         </div>
     @endsection

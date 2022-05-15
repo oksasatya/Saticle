@@ -9,10 +9,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <title>Saticle Admin</title>
     <!-- plugins:css -->
@@ -23,7 +19,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo-mini.svg') }}" />
 
 
 </head>

@@ -27,7 +27,7 @@ Route::middleware(['auth', 'verified', 'role:user'])->group(function () {
 });
 
 
-// admin
-Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'adminIndex'])->name('admin.dashboard');
+// role admin super admin and writer
+Route::middleware(['auth', 'verified', 'role:admin|super-admin|writer'])->group(function () {
+    Route::get('/dashboard', [HomeController::class, 'adminIndex'])->name('admin.dashboard');
 });
