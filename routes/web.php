@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,5 +30,10 @@ Route::middleware(['auth', 'verified', 'role:user', 'visitor'])->group(function 
 
 // role admin super admin and writer
 Route::middleware(['auth', 'verified', 'role:admin|super-admin|writer'])->group(function () {
-    Route::get('/dashboard', [HomeController::class, 'adminIndex'])->name('admin.dashboard');
+    route::prefix('admin')
+        ->name('admin.')
+        ->group(function () {
+            Route::get('/dashboard', [HomeController::class, 'adminIndex'])->name('dashboard');
+            Route::resource('manage-users', UserController::class);
+        });
 });

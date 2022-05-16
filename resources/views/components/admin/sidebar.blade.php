@@ -5,10 +5,10 @@
                 <div class="nav-profile-image">
                     @if (Auth::user()->avatar == null)
                         <img src="{{ 'https://ui-avatars.com/api/?name=' . Auth::user()->name }}" alt="profile">
-                        <span class="availability-status online"></span>
+                        <span class="login-status online"></span>
                     @else
                         <img src="{{ asset('storage/') . Auth::user()->avatar }}" alt="profile">
-                        <span class="availability-status online"></span>
+                        <span class="login-status online"></span>
                     @endif
                     <!--change to offline or busy as needed-->
                 </div>
@@ -24,6 +24,12 @@
             <a class="nav-link" href="{{ route('admin.dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.manage-users.index') }}">
+                <span class="menu-title">Manage-Users</span>
+                <i class="mdi mdi-account-multiple-plus menu-icon"></i>
             </a>
         </li>
     </ul>

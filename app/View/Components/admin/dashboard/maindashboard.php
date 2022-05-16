@@ -30,13 +30,14 @@ class maindashboard extends Component
     public function render()
     {
 
-        $user =  visitor()->onlineVisitors(User::class, 0)->count();
+        $user =  visitor()->onlineVisitors(User::class)->count();
         $data = [
             'user' => User::count(),
             'last_user' => User::orderBy('created_at', 'desc')->first(),
             'total_post' => Post::count(),
             'last_post' => Post::orderBy('created_at', 'desc')->first(),
             'online' => $user,
+            'last_online' => Visit::orderBy('created_at', 'desc')->first(),
         ];
         return view('components.admin.dashboard.maindashboard', $data);
     }

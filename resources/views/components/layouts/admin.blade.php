@@ -42,6 +42,9 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
+    {{-- toooltip --}}
+    <script src="{{ asset('assets/js/tooltip.js') }}"></script>
+    <script src="{{ asset('assets/js/modal.js') }}"></script>
 </body>
 
 </html>
