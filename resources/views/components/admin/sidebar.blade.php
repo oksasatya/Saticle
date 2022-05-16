@@ -21,13 +21,15 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.dashboard') }}">
+            <a class="nav-link {{ request()->is('admin/manage-users/*') ? 'active' : '' }}"
+                href="{{ route('admin.dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.manage-users.index') }}">
+            <a class="nav-link {{ request()->is('admin/manage-users/*') ? 'active' : '' }}"
+                href="{{ route('admin.manage-users.index') }}">
                 <span class="menu-title">Manage-Users</span>
                 <i class="mdi mdi-account-multiple-plus menu-icon"></i>
             </a>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -46,7 +48,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::findOrFail($id);
+        return view('admin.user.show', compact('users'));
     }
 
     /**
@@ -57,8 +60,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        // get all role name
+        $roles = Role::all();
         $user = User::find($id);
-        return view('admin.user.edit', compact('user'));
+        return view('admin.user.edit', compact('user', 'roles'));
     }
 
     /**
@@ -68,9 +73,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        $request->execute($id);
+        // return redirect back
+        return redirect()->back()->with('status', 'Update user successfully');
     }
 
     /**

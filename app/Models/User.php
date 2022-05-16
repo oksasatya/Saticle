@@ -13,6 +13,7 @@ use Shetabit\Visitor\Models\Visit;
 use Shetabit\Visitor\Traits\Visitable;
 use Spatie\Permission\Traits\HasRoles;
 use Shetabit\Visitor\Traits\Visitor;
+use Spatie\Permission\Models\Role;
 
 class User extends Authenticatable
 {
@@ -48,8 +49,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function roles(): belongsToMany
-    {
-        return $this->belongsToMany(Role::class, 'model_has_roles', 'model_id', 'role_id');
-    }
 }

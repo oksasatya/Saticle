@@ -11,7 +11,6 @@
                         @endif
                         <x-admin.manage-user.table-user></x-admin.manage-user.table-user>
                     </div>
-
                 </div>
             </div>
             <x-admin.footer></x-admin.footer>

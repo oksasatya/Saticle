@@ -1,11 +1,10 @@
 <?php
 
-namespace App\View\Components\admin\manageUser;
+namespace App\View\Components;
 
-use App\Models\User;
 use Illuminate\View\Component;
 
-class tableUser extends Component
+class validatePhone extends Component
 {
     /**
      * Create a new component instance.
@@ -24,7 +23,6 @@ class tableUser extends Component
      */
     public function render()
     {
-        $users = User::latest()->paginate(10);
-        return view('components.admin.manage-user.table-user', compact('users'));
+        return view('components.validate-phone');
     }
 }

@@ -41,7 +41,11 @@
                 </h4>
                 {{-- show online user --}}
                 <h2 class="mb-5">{{ $online }}</h2>
-                <h6 class="card-text text-capitalize">last online {{ $last_online->created_at->diffforhumans() }}</h6>
+                @if ($last_online == null)
+                    <h6 class="card-text">No user online</h6>
+                @else
+                    <h6 class="card-text">Last user online {{ $last_online->created_at->diffforhumans() }}</h6>
+                @endif
             </div>
         </div>
     </div>

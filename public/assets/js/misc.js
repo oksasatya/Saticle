@@ -23,7 +23,7 @@ var lightColor = getComputedStyle(document.body).getPropertyValue('--light');
     function addActiveClass(element) {
       if (current === "") {
         //for root url
-        if (element.attr('href').indexOf("index.html") !== -1) {
+        if (element.attr('href').indexOf("") !== -1) {
           element.parents('.nav-item').last().addClass('active');
           if (element.parents('.sub-menu').length) {
             element.closest('.collapse').addClass('show');
@@ -41,9 +41,12 @@ var lightColor = getComputedStyle(document.body).getPropertyValue('--light');
           if (element.parents('.submenu-item').length) {
             element.addClass('active');
           }
+        //   add active from url
         }
       }
+
     }
+
 
     var current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
     $('.nav li a', sidebar).each(function() {
@@ -118,7 +121,7 @@ var lightColor = getComputedStyle(document.body).getPropertyValue('--light');
       document.querySelector('#proBanner').classList.add('d-none');
       document.querySelector('.navbar').classList.add('fixed-top');
     }
-    
+
     if ($( ".navbar" ).hasClass( "fixed-top" )) {
       document.querySelector('.page-body-wrapper').classList.remove('pt-0');
       document.querySelector('.navbar').classList.remove('pt-5');
@@ -127,7 +130,7 @@ var lightColor = getComputedStyle(document.body).getPropertyValue('--light');
       document.querySelector('.page-body-wrapper').classList.add('pt-0');
       document.querySelector('.navbar').classList.add('pt-5');
       document.querySelector('.navbar').classList.add('mt-3');
-      
+
     }
     document.querySelector('#bannerClose').addEventListener('click',function() {
       document.querySelector('#proBanner').classList.add('d-none');
@@ -137,7 +140,7 @@ var lightColor = getComputedStyle(document.body).getPropertyValue('--light');
       document.querySelector('.page-body-wrapper').classList.add('proBanner-padding-top');
       document.querySelector('.navbar').classList.remove('mt-3');
       var date = new Date();
-      date.setTime(date.getTime() + 24 * 60 * 60 * 1000); 
+      date.setTime(date.getTime() + 24 * 60 * 60 * 1000);
       $.cookie('purple-free-banner', "true", { expires: date });
     });
   });
