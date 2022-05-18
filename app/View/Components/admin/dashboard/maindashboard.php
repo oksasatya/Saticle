@@ -32,10 +32,9 @@ class maindashboard extends Component
 
         $user =  visitor()->onlineVisitors(User::class)->count();
         $data = [
-            'user' => User::count(),
-            'last_user' => User::orderBy('created_at', 'desc')->first(),
-            'total_post' => Post::count(),
-            'last_post' => Post::orderBy('created_at', 'desc')->first(),
+            'user' => User::orderBy('created_at', 'desc')->get(),
+            // get data last created and count
+            'posts' => Post::orderBy('created_at', 'desc')->get(),
             'online' => $user,
             'last_online' => Visit::orderBy('created_at', 'desc')->first(),
         ];
@@ -43,3 +42,4 @@ class maindashboard extends Component
     }
 }
 // >count()
+// orderBy('created_at', 'desc')->first()

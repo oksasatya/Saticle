@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('author')->nullable()->after('content');
-            $table->string('image')->nullable()->after('author');
+            $table->string('author')->after('content')->nullable();
+            $table->string('image')->after('author')->nullable();
         });
     }
 

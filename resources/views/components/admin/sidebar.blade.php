@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/manage-users/*') ? 'active' : '' }}"
+            <a class="nav-link {{ request()->is('admin/dashboard/*') ? 'active' : '' }}"
                 href="{{ route('admin.dashboard') }}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
@@ -30,8 +30,15 @@
         <li class="nav-item">
             <a class="nav-link {{ request()->is('admin/manage-users/*') ? 'active' : '' }}"
                 href="{{ route('admin.manage-users.index') }}">
-                <span class="menu-title">Manage-Users</span>
+                <span class="menu-title">Manage Users</span>
                 <i class="mdi mdi-account-multiple-plus menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/manage-post/*') ? 'active' : '' }}"
+                href="{{ route('admin.post.index') }}">
+                <span class="menu-title">Manage Post</span>
+                <i class="mdi mdi-book-open-page-variant menu-icon"></i>
             </a>
         </li>
     </ul>

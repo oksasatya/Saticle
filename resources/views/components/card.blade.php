@@ -22,7 +22,12 @@
                 <div class="postcard__bar"></div>
                 <div class="postcard__preview-txt">{{ Str::limit($post->content, 250) }}</div>
                 <ul class="postcard__tagbox">
-                    <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $post->tag }}</li>
+                    {{-- tag --}}
+                    @foreach ($post->tags as $tag)
+                        @if ($loop->iteration % 2 == 0)
+                            <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $tag->name }}</li>
+                        @endif
+                    @endforeach
                     <li class="tag__item"><i class="fa fa-user me-2"></i>{{ $post->author }}</li>
                     <li class="tag__item play blue">
                         <a href="#"><i class="fa fa-play me-2"></i><span class="text-white">Read More</span></a>
@@ -52,9 +57,13 @@
                 <div class="postcard__bar"></div>
                 <div class="postcard__preview-txt">{{ Str::limit($post->content, 250) }}</div>
                 <ul class="postcard__tagbox">
-                    <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $post->tag }}</li>
+                    {{-- tags --}}
+                    @foreach ($post->tags as $tag)
+                        @if ($loop->iteration % 2 == 0)
+                            <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $tag->name }}</li>
+                        @endif
+                    @endforeach
                     <li class="tag__item"><i class="fa fa-user me-2"></i>{{ $post->author }}</li>
-
                     <li class="tag__item play red">
                         <a href="#"><i class="fa fa-play me-2"></i><span class="text-white">Read More</span></a>
                     </li>
@@ -85,7 +94,12 @@
                 <div class="postcard__preview-txt">{{ Str::limit($post->content, 250) }}</div>
 
                 <ul class="postcard__tagbox">
-                    <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $post->tag }}</li>
+                    {{-- tag --}}
+                    @foreach ($post->tags as $tag)
+                        @if ($loop->iteration % 2 == 0)
+                            <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $tag->name }}</li>
+                        @endif
+                    @endforeach
                     <li class="tag__item"><i class="fa fa-user me-2"></i>{{ $post->author }}</li>
                     <li class="tag__item play green">
                         <a href="#"><i class="fa fa-play me-2"></i><span class="text-white">Read More</span></a>
@@ -116,7 +130,12 @@
                 <div class="postcard__bar"></div>
                 <div class="postcard__preview-txt">{{ Str::limit($post->content, 250) }}</div>
                 <ul class="postcard__tagbox">
-                    <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $post->tag }}</li>
+                    @foreach ($post->tags as $tag)
+                        {{-- limit tag == 2 --}}
+                        @if ($loop->iteration % 2 == 0)
+                            <li class="tag__item"><i class="fa fa-tag me-2"></i>{{ $tag->name }}</li>
+                        @endif
+                    @endforeach
                     <li class="tag__item"><i class="fa fa-user me-2"></i>{{ $post->author }}</li>
                     <li class="tag__item play yellow">
                         <a href="#"><i class="fa fa-play me-2"></i><span class="text-white">Read More</span></a>

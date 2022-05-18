@@ -1,10 +1,8 @@
-<div class="page-header">
-    <h3 class="page-title">
-        <span class="page-title-icon bg-gradient-primary text-white me-2">
-            <i class="mdi mdi-home"></i>
-        </span> Dashboard
-    </h3>
-</div>
+<x-layouts.page-header>
+    <span class="page-title-icon bg-gradient-primary text-white me-2">
+        <i class="mdi mdi-home"></i>
+    </span> Dashboard
+</x-layouts.page-header>
 <div class="row">
     <div class="col-md-4 stretch-card grid-margin">
         <div class="card bg-gradient-danger card-img-holder text-white">
@@ -13,8 +11,13 @@
                     alt="circle-image" />
                 <h4 class="font-weight-normal mb-3">Total Users <i class="mdi mdi-account-check mdi-24px float-end"></i>
                 </h4>
-                <h2 class="mb-5">{{ $user }}</h2>
-                <h6 class="card-text">Last Created user {{ $last_user->created_at->diffforhumans() }}</h6>
+                <h2 class="mb-5">{{ $user->count() }}</h2>
+                @if ($user->count() > 0)
+                    <h6 class="card-text">Last Created user {{ $user->first()->created_at->diffforhumans() }}
+                    </h6>
+                @else
+                    <h6 class="card-text">Last Created user {{ $user->created_at->diffforhumans() }}</h6>
+                @endif
             </div>
         </div>
     </div>
@@ -26,9 +29,14 @@
                 <h4 class="font-weight-normal mb-3">Total Post <i
                         class="mdi mdi-book-open-page-variant mdi-24px float-end"></i>
                 </h4>
-                <h2 class="mb-5">{{ $total_post }}</h2>
-                <h6 class="card-text text-capitalize">last created post
-                    {{ $last_post->created_at->diffforhumans() }}</h6>
+                <h2 class="mb-5">{{ $posts->count() }}</h2>
+                {{-- show latest created post --}}
+                @if ($posts->count() > 0)
+                    <h6 class="card-text">Latest Post {{ $posts->first()->created_at->diffforhumans() }}</h6>
+                @else
+                    <h6 class="card-text">No Post Created Yet</h6>
+                @endif
+
             </div>
         </div>
     </div>
@@ -76,73 +84,6 @@
 </div>
 <div class="row">
     <div class="col-12 grid-margin">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Recent Tickets</h4>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th> Assignee </th>
-                                <th> Subject </th>
-                                <th> Status </th>
-                                <th> Last Update </th>
-                                <th> Tracking ID </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <img src="assets/images/faces/face1.jpg" class="me-2" alt="image">
-                                    David Grey
-                                </td>
-                                <td> Fund is not recieved </td>
-                                <td>
-                                    <label class="badge badge-gradient-success">DONE</label>
-                                </td>
-                                <td> Dec 5, 2017 </td>
-                                <td> WD-12345 </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="assets/images/faces/face2.jpg" class="me-2" alt="image">
-                                    Stella Johnson
-                                </td>
-                                <td> High loading time </td>
-                                <td>
-                                    <label class="badge badge-gradient-warning">PROGRESS</label>
-                                </td>
-                                <td> Dec 12, 2017 </td>
-                                <td> WD-12346 </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="assets/images/faces/face3.jpg" class="me-2" alt="image">
-                                    Marina Michel
-                                </td>
-                                <td> Website down for one week </td>
-                                <td>
-                                    <label class="badge badge-gradient-info">ON HOLD</label>
-                                </td>
-                                <td> Dec 16, 2017 </td>
-                                <td> WD-12347 </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="assets/images/faces/face4.jpg" class="me-2" alt="image">
-                                    John Doe
-                                </td>
-                                <td> Loosing control on server </td>
-                                <td>
-                                    <label class="badge badge-gradient-danger">REJECTED</label>
-                                </td>
-                                <td> Dec 3, 2017 </td>
-                                <td> WD-12348 </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <x-admin.dashboard.recent-user></x-admin.dashboard.recent-user>
     </div>
 </div>

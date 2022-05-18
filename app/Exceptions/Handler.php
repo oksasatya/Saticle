@@ -47,5 +47,10 @@ class Handler extends ExceptionHandler
             // return custom page
             return response()->view('errors.403', [], 403);
         });
+
+        // render 404 page
+        $this->renderable(function (\Symfony\Component\HttpKernel\Exception\NotFoundHttpException $e, $request) {
+            return response()->view('errors.404', [], 404);
+        });
     }
 }

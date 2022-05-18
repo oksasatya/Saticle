@@ -19,23 +19,16 @@ class PostFactory extends Factory
     {
         // faker by indonesia
         $faker = \Faker\Factory::create('id_ID');
-        $title = $this->faker->sentence;
+        $title = $faker->sentence();
         $slug = Str::slug($title);
-        $tag = ['tag1', 'tag2', 'tag3'][$this->faker->numberBetween(0, 2)];
-        // faker ramdom image and save to public/storage/img/post
-        $image = $this->faker->image('public/storage/img/post', 640, 480, null, false);
-        $image = str_replace('public/storage/img/', '', $image);
-        $image = str_replace('public/', '', $image);
-
-
-
+        // generate random image save to public
+        $image = $this->faker->image('public/storage/', 640, 480, null, false);
         return [
             'title' => $title,
             'slug' => $slug,
             // text 150 characters
             'content' => $this->faker->sentence(250),
-            'published' => $this->faker->boolean,
-            'tag' => $tag,
+            'status' => $this->faker->boolean,
             // image
             'image' => $image,
             'author' => $faker->name,

@@ -19,4 +19,12 @@ class Post extends Model
         'image',
         'author',
     ];
+
+    public $timestamps = true;
+
+    // relation with tags
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class)->withPivot('created_at');
+    }
 }

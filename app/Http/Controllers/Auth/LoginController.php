@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 // role model
 use Spatie\Permission\Models\Role;
@@ -58,5 +59,15 @@ class LoginController extends Controller
         } else {
             return redirect()->route('admin.dashboard');
         }
+    }
+
+    // logout
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect(RouteServiceProvider::HOME);
     }
 }

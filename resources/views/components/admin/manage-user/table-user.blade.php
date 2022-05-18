@@ -1,9 +1,12 @@
+<x-layouts.page-header>
+    <span class="page-title-icon bg-gradient-primary text-white me-2">
+        <i class="mdi mdi-account-multiple"></i>
+    </span> Management User
+</x-layouts.page-header>
 <div class="row">
     <div class="col-lg-12 stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Management Users</h4>
-                </p>
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -302,7 +305,6 @@
                             @endif
                         @endforeach
                     </tbody>
-
                 </table>
                 <div class="mt-3">
                     {{ $users->links() }}

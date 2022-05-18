@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use File;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -21,13 +24,15 @@ class UserFactory extends Factory
         $faker = \Faker\Factory::create('id_ID');
         $name = $faker->name;
 
-
+        // generate random image and create folder if not exists
+        $image = basename($this->faker->image(storage_path('app/public'), 640, 480, null, false));
         return [
             'name' => $name,
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => bcrypt('password'), // password
             'remember_token' => Str::random(10),
+            'avatar' => $image,
             'created_at' => now(),
         ];
 
