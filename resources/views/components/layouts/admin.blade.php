@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/css/vendor.bundle.base.css') }}">
     <!-- endinject -->
-
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- End layout styles -->
@@ -25,9 +24,14 @@
 </head>
 
 <body>
-    @yield('content') {{-- jquery.min.js --}}
-    <!-- container-scroller -->
-    <!-- plugins:js -->
+    @yield('content')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+        integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/tag.js') }}"></script>
+
+    {{-- vendor --}}
     <script src="{{ asset('assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -45,7 +49,10 @@
     <!-- End custom js for this page -->
     {{-- toooltip --}}
     <script src="{{ asset('assets/js/tooltip.js') }}"></script>
-    <script src="{{ asset('assets/js/modal.js') }}"></script>
+
+    {{-- tag --}}
+
+
 </body>
 
 </html>

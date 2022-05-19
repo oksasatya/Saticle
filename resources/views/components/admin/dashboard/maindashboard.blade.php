@@ -74,10 +74,30 @@
     <div class="col-md-5 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Traffic Sources</h4>
-                <canvas id="traffic-chart"></canvas>
-                <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4">
-                </div>
+                <h4 class="card-title">Management Tag</h4>
+                <div id="message" class="message"></div>
+                {{-- send post with ajax --}}
+                {{-- use form with validation bootstrap was validated --}}
+                <form action="{{ route('admin.tag.store') }}" name="form-tag" id="form-tag">
+                    {{-- input type hidden token --}}
+                    @csrf
+                    <div class="mb-4 d-flex">
+                        <input type="text" class="form-control me-4" name="name" id="name" required
+                            placeholder="Add New Tag">
+                        <button type="submit"
+                            class="btn btn-gradient-primary font-weight-bold todo-list-add-btn">Add</button>
+                    </div>
+                </form>
+                <table class="table table-bordered table-success">
+                    <thead>
+                        <tr>
+                            <th> Tags Name </th>
+                            <th> Tags Slug </th>
+                        </tr>
+                    </thead>
+
+                </table>
+
             </div>
         </div>
     </div>

@@ -3,8 +3,8 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-5 text-center">Edit form User</h4>
-                <form class="forms-sample" action="{{ route('admin.manage-users.update', $user->id) }}"
-                    method="POST">
+                <form class="forms-sample" action="{{ route('admin.manage-users.update', $user->id) }}" method="POST"
+                    class="form-edit-user" id="form-edit-user">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

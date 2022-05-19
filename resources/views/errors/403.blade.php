@@ -6,8 +6,8 @@
     <p>You do not have permission to access this page or an error has occurred.</p>
     @role('user')
         <a href="{{ route('user.home') }}" class="button">Back to Dashboard</a>
+    @else
+        <a href=" {{ route('admin.dashboard') }}" class="button">Back to Dashboard</a>
     @endrole
-    @role('admin')
-        <a href=" {{ route('admin.dashboard') }}">Back to Dashboard</a>
-    @endrole
+
 </div>
