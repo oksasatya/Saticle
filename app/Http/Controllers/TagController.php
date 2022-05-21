@@ -50,6 +50,8 @@ class TagController extends Controller
                 return response()->json([
                     'status' => 'error',
                     'message' => $validator->errors()->all(),
+                    // get the name of input
+
                 ]);
             }
         }
@@ -62,6 +64,9 @@ class TagController extends Controller
         return response()->json([
             'message' => 'Tag created successfully',
             'status' => 'success',
+            'tag' => $tag,
+            // delete url for delete tag
+            'delete_url' => route('admin.tag.destroy', $tag->id),
         ], 200);
     }
 
@@ -107,6 +112,11 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->id;
+        $tag->delete();
+        return response()->json([
+            'message' => 'Tag deleted successfully',
+            'status' => 'success',
+        ], 200);
     }
 }

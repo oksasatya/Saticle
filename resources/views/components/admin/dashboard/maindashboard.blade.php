@@ -88,13 +88,34 @@
                             class="btn btn-gradient-primary font-weight-bold todo-list-add-btn">Add</button>
                     </div>
                 </form>
-                <table class="table table-bordered table-success">
-                    <thead>
-                        <tr>
+                <table class="table table-bordered " id="tag-table">
+                    <thead class="table-success">
+                        <tr id="tag-row">
                             <th> Tags Name </th>
-                            <th> Tags Slug </th>
+                            <th> Action </th>
                         </tr>
                     </thead>
+                    <tbody class="tag-row">
+                        @foreach ($tags as $tag)
+                            <tr>
+                                <td>
+                                    <p class="text-primary">{{ $tag->name }}</p>
+                                </td>
+                                <td>
+                                    {{-- {{-- form for delete button --}}
+                                    <form action="{{ route('admin.tag.destroy', $tag->id) }}" method="POST"
+                                        id="form-delete-tag-{{ $tag->id }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="btn btn-gradient-danger btn-sm font-weight-bold delete-tag"
+                                            {{-- mdi delete i class --}} data-id="{{ $tag->id }}">
+                                            <i class="mdi mdi-delete"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                        @endforeach
+                    </tbody>
 
                 </table>
 
@@ -107,3 +128,5 @@
         <x-admin.dashboard.recent-user></x-admin.dashboard.recent-user>
     </div>
 </div>
+
+<script></script>

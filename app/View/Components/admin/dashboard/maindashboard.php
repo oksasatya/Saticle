@@ -3,6 +3,7 @@
 namespace App\View\Components\admin\dashboard;
 
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -37,6 +38,7 @@ class maindashboard extends Component
             'posts' => Post::orderBy('created_at', 'desc')->get(),
             'online' => $user,
             'last_online' => Visit::orderBy('created_at', 'desc')->first(),
+            'tags' => Tag::latest()->paginate(5),
         ];
         return view('components.admin.dashboard.maindashboard', $data);
     }
