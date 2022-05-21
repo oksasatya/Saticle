@@ -76,7 +76,3 @@ $(document).on('submit', 'form[id^=form-delete-tag-]', function(e) {
         }
     });
 });
-// let action = `<td><form action="${response.tag.url}" method="POST" id="form-delete-tag-${response.tag.id}">@csrf @method(`DELETE') <button type="submit" class="btn btn-gradient-danger btn-sm btn-icon-text"> <i class="mdi mdi-delete btn-icon-prepend"></i> Delete </button></form></td>';
-
-// let action =  `<td><form action="${response.delete_url}" method="DELETE" id="form-delete-tag-${response.tag.id}}"
-// button-delete-tag-${response.tag.id}}"> @csrf @method('Delete') <button type="submit" class="btn btn-danger btn-sm">Delete</button> </form> </td>`;
