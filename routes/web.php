@@ -40,5 +40,7 @@ Route::middleware(['auth', 'verified', 'role:admin|super-admin|writer'])->group(
             Route::resource('manage-users', UserController::class);
             Route::resource('post', PostController::class);
             Route::resource('tag', TagController::class);
+            // post datatable
+            Route::get('post-datatable', [PostController::class, 'getData'])->name('post.datatable');
         });
 });
