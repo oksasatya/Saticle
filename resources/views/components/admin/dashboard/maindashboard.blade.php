@@ -74,10 +74,51 @@
     <div class="col-md-5 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Traffic Sources</h4>
-                <canvas id="traffic-chart"></canvas>
-                <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4">
-                </div>
+                <h4 class="card-title">Management Tag</h4>
+                <div id="message" class="message"></div>
+                {{-- send post with ajax --}}
+                {{-- use form with validation bootstrap was validated --}}
+                <form action="{{ route('admin.tag.store') }}" name="form-tag" id="form-tag">
+                    {{-- input type hidden token --}}
+                    @csrf
+                    <div class="mb-4 d-flex">
+                        <input type="text" class="form-control me-4" name="name" id="name" required
+                            placeholder="Add New Tag">
+                        <button type="submit"
+                            class="btn btn-gradient-primary font-weight-bold todo-list-add-btn">Add</button>
+                    </div>
+                </form>
+                <table class="table table-bordered " id="tag-table">
+                    <thead class="table-success">
+                        <tr id="tag-row">
+                            <th> Tags Name </th>
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody class="tag-row">
+                        @foreach ($tags as $tag)
+                            <tr>
+                                <td>
+                                    <p class="text-primary">{{ $tag->name }}</p>
+                                </td>
+                                <td>
+                                    {{-- {{-- form for delete button --}}
+                                    <form action="{{ route('admin.tag.destroy', $tag->id) }}" method="POST"
+                                        id="form-delete-tag-{{ $tag->id }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="btn btn-gradient-danger btn-sm font-weight-bold delete-tag"
+                                            {{-- mdi delete i class --}} data-id="{{ $tag->id }}">
+                                            <i class="mdi mdi-delete"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                        @endforeach
+                    </tbody>
+
+                </table>
+
             </div>
         </div>
     </div>
@@ -87,3 +128,5 @@
         <x-admin.dashboard.recent-user></x-admin.dashboard.recent-user>
     </div>
 </div>
+
+<script></script>

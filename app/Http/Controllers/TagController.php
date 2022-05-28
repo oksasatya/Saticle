@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -34,9 +38,36 @@ class TagController extends Controller
      * @param  \App\Http\Requests\StoreTagRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTagRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validator =  Validator::make($request->all(), [
+            'name' => 'required|min:3|string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            // response ajax request
+            if ($request->ajax()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => $validator->errors()->all(),
+                    // get the name of input
+
+                ]);
+            }
+        }
+        // create new tag
+        $tag = new Tag();
+        $tag->name = $request->name;
+        $tag->slug = Str::slug($request->name);
+        $tag->save();
+
+        return response()->json([
+            'message' => 'Tag created successfully',
+            'status' => 'success',
+            'tag' => $tag,
+            // delete url for delete tag
+            'delete_url' => route('admin.tag.destroy', $tag->id),
+        ], 200);
     }
 
     /**
@@ -81,6 +112,11 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->id;
+        $tag->delete();
+        return response()->json([
+            'message' => 'Tag deleted successfully',
+            'status' => 'success',
+        ], 200);
     }
 }

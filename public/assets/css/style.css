@@ -13664,7 +13664,7 @@ dl {
 /* Tabs */
 .add-items {
   margin-bottom: 1.5rem;
-  overflow: hidden; }
+  }
   .add-items input[type="text"] {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
