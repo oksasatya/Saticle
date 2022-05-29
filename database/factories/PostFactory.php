@@ -22,7 +22,7 @@ class PostFactory extends Factory
         $title = $faker->sentence();
         $slug = Str::slug($title);
         // generate random image save to public
-        $image = $this->faker->image('public/storage/', 640, 480, null, false);
+        // $image = $this->faker->image('public/storage/', 640, 480, null, false);
         return [
             'title' => $title,
             'slug' => $slug,
@@ -30,7 +30,7 @@ class PostFactory extends Factory
             'content' => $this->faker->sentence(250),
             'status' => $this->faker->boolean,
             // image
-            'image' => $image,
+            // 'image' => $image,
             'author' => $faker->name,
         ];
     }

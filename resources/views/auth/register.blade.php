@@ -1,5 +1,4 @@
-<x-guest-navbar></x-guest-navbar>
-
+<x-guestnavbar></x-guestnavbar>
 <x-layouts.app>
     @section('content')
         <section class="ftco-section ftco-no-pb" autofocus="off">

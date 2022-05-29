@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Models\Tag;
@@ -42,5 +43,6 @@ Route::middleware(['auth', 'verified', 'role:admin|super-admin|writer'])->group(
             Route::resource('tag', TagController::class);
             // post datatable
             Route::get('post-datatable', [PostController::class, 'getData'])->name('post.datatable');
+            ROute::resource('role', RoleController::class);
         });
 });

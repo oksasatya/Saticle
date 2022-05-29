@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateUserRequest;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 
-class UserController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(10);
-        return view('admin.users', compact('users'));
+        return view('admin.role.index');
     }
 
     /**
@@ -49,8 +45,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $users = User::findOrFail($id);
-        return view('admin.user.show', compact('users'));
+        //
     }
 
     /**
@@ -61,10 +56,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        // get all role name
-        $roles = Role::all();
-        $user = User::find($id);
-        return view('admin.user.edit', compact('user', 'roles'));
+        //
     }
 
     /**
@@ -74,11 +66,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $request->execute($id);
-        // return redirect back
-        return redirect()->back()->with('status', 'Update user successfully');
+        //
     }
 
     /**
@@ -89,8 +79,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return redirect()->route('admin.manage-users.index')->with('status', 'User has been deleted successfully');
+        //
     }
 }

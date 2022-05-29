@@ -41,5 +41,12 @@
                 <i class="mdi mdi-book-open-page-variant menu-icon"></i>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/role/*') ? 'active' : '' }}"
+                href="{{ route('admin.role.index') }}">
+                <span class="menu-title">Manage Role</span>
+                <i class="mdi mdi-account-plus menu-icon"></i>
+            </a>
+        </li>
     </ul>
 </nav>
