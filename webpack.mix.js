@@ -17,10 +17,17 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/403.scss', 'public/css')
     // admin.sass
 
-    .sourceMaps();
+    .sourceMaps(true, 'source-map')
+    .webpackConfig({
+        stats: {
+            children: true
+        }
+    })
+    .browserSync({
+        proxy: '127.0.0.1:8000',
+        port: 3100,
+        ghostMode: false,
+        notify: false
+    })
 
-mix.webpackConfig({
-    stats: {
-        children: true
-    }
-});
+
